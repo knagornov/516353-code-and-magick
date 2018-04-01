@@ -8,13 +8,11 @@ var CLOUD_Y = 10;
 var HORIZONTAL_PADDING = 55;
 var VERTICAL_PADDING = 25;
 var SHADOW_OFFSET = 10;
-
 var LINE_HEIGHT = 20;
-
-var BAR_WIDTH = 40;
 var BAR_GAP = 50;
 var LABEL_GAP = 10;
-var barHeight = CLOUD_HEIGHT - VERTICAL_PADDING * 2 - LINE_HEIGHT * 4 - LABEL_GAP - LINE_HEIGHT;
+var BAR_WIDTH = 40;
+var BAR_HEIGHT = CLOUD_HEIGHT - VERTICAL_PADDING * 2 - LINE_HEIGHT * 4 - LABEL_GAP - LINE_HEIGHT;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.beginPath();
@@ -68,13 +66,13 @@ window.renderStatistics = function (ctx, players, times) {
 
     ctx.fillRect(CLOUD_X + HORIZONTAL_PADDING + (BAR_WIDTH + BAR_GAP) * i,
         CLOUD_Y + CLOUD_HEIGHT - LABEL_GAP - LINE_HEIGHT - VERTICAL_PADDING,
-        BAR_WIDTH, -(barHeight * times[i]) / maxTime);
+        BAR_WIDTH, -(BAR_HEIGHT * times[i]) / maxTime);
 
     ctx.fillStyle = '#000000';
 
     ctx.fillText(players[i], CLOUD_X + HORIZONTAL_PADDING + BAR_GAP * i + BAR_WIDTH * (i + 0.5),
         CLOUD_Y + CLOUD_HEIGHT - LINE_HEIGHT - VERTICAL_PADDING);
     ctx.fillText(Math.round(times[i]), CLOUD_X + HORIZONTAL_PADDING + BAR_GAP * i + BAR_WIDTH * (i + 0.5),
-        CLOUD_Y + CLOUD_HEIGHT - LINE_HEIGHT - (barHeight * times[i]) / maxTime - LABEL_GAP - LINE_HEIGHT - VERTICAL_PADDING);
+        CLOUD_Y + CLOUD_HEIGHT - LINE_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime - LABEL_GAP - LINE_HEIGHT - VERTICAL_PADDING);
   }
 };
