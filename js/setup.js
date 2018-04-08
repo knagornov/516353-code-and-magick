@@ -8,7 +8,7 @@ var NAMES = [
   'Виктор',
   'Юлия',
   'Люпита',
-  'Вашингтон'
+  'Вашингтон',
 ];
 
 var SURNAMES = [
@@ -19,7 +19,7 @@ var SURNAMES = [
   'Онопко',
   'Топольницкая',
   'Нионго',
-  'Ирвинг'
+  'Ирвинг',
 ];
 
 var COAT_COLORS = [
@@ -28,7 +28,7 @@ var COAT_COLORS = [
   'rgb(146, 100, 161)',
   'rgb(56, 159, 117)',
   'rgb(215, 210, 55)',
-  'rgb(0, 0, 0)'
+  'rgb(0, 0, 0)',
 ];
 
 var EYE_COLORS = [
@@ -36,15 +36,15 @@ var EYE_COLORS = [
   'red',
   'blue',
   'yellow',
-  'green'
+  'green',
 ];
 
-var WIZARDS_NUMBER = 4;
+var NUMBER_WIZARDS = 4;
 var setup = document.querySelector('.setup');
 var setupSimilar = document.querySelector('.setup-similar');
 var wisardsList = document.querySelector('.setup-similar-list');
 var wizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-var fragment = document.createDocumentFragment();
+var wizardsFragment = document.createDocumentFragment();
 
 var generateWizardsData = function (numberWizards) {
   var wizards = [];
@@ -75,13 +75,13 @@ var makeWizard = function (wizardData) {
 
 var renderWizards = function () {
   for (var i = 0; i < wizardsData.length; i++) {
-    fragment.appendChild(makeWizard(wizardsData[i]));
+    wizardsFragment.appendChild(makeWizard(wizardsData[i]));
   }
 
-  wisardsList.appendChild(fragment);
+  wisardsList.appendChild(wizardsFragment);
 };
 
-var wizardsData = generateWizardsData(WIZARDS_NUMBER);
+var wizardsData = generateWizardsData(NUMBER_WIZARDS);
 renderWizards();
 setup.classList.remove('hidden');
 setupSimilar.classList.remove('hidden');
